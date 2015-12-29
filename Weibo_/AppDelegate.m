@@ -24,6 +24,8 @@
     self.window.rootViewController = [[RootVTabBarController alloc] init];
     [self.window makeKeyWindow];
     
+
+    
     return YES;
 }
 

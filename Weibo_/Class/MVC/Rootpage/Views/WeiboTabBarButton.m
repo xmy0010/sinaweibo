@@ -50,7 +50,10 @@
 
 //生成按钮内部图片的位置(frame) contentRect为按钮自身的frame
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
-
+    
+//    static int i = 0;
+//    NSLog(@"%d", ++i);
+    
     CGFloat imageX = 0;
     CGFloat imageY = 0;
     CGFloat imageW = CGRectGetWidth(contentRect);
@@ -61,7 +64,9 @@
 
 //生成按钮内部titleLable的位置(frame)
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
-
+    static int i = 0;
+    NSLog(@"%d", ++i);
+    
     CGFloat titleX = 0;
     CGFloat titleY = CGRectGetHeight(contentRect) * _ratio;
     CGFloat titleW = CGRectGetWidth(contentRect);
