@@ -13,6 +13,8 @@
 
 //全局数组 存放button
 @property (nonatomic, strong) NSMutableArray *buttonArray;
+@property (nonatomic, strong) WeiboTabBarButton *selectedButton;
+
 
 @end
 
@@ -32,13 +34,21 @@
     //获取到 title image
     //此函数调用一次创建一个Button
     WeiboTabBarButton *button = [WeiboTabBarButton buttonWithType:UIButtonTypeCustom];
-    self.tabBarItem = tabBarItem;
+    [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
+    _tabBarItem = tabBarItem;
+    button.tabBarItem = tabBarItem;
     
     [self addSubview:button];
     button.ratio = .67;
     
     //存储在全局按钮数组里面
     [self.buttonArray addObject:button];
+    
+    //当第一次调用这个方法 就让第一个按钮处于选中状态
+    if (self.buttonArray.count == 1) {
+        button.selected = YES;
+        _selectedButton = button;
+    }
     
 //    button.imageEdgeInsets = UIEdgeInsetsMake(0, 40, 20, 10);
 //    button.titleEdgeInsets = UIEdgeInsetsMake(20, -10, 0, 10);
@@ -62,6 +72,32 @@
         btn.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
     }
     
+}
+
+#pragma mark - Action
+
+- (void)buttonPressed:(WeiboTabBarButton *)sender {
+    
+//  //1.循环
+//    for (WeiboTabBarButton *button in self.buttonArray) {
+//        button.selected = NO;
+//    }
+//    sender.selected = YES;
+    //2.记录
+    _selectedButton.selected = NO;
+    sender.selected = YES;
+    _selectedButton = sender;
+    
+    NSInteger index = [_buttonArray indexOfObject:sender];
+//    //响应代理的方法
+//    if ([_delegate respondsToSelector:@selector(passIndex:)]) {
+//        [_delegate passIndex: index];
+//    }
+    
+    //响应Block的方法
+    if (_passBlock) {
+        _passBlock(index);
+    }
 }
 
 @end

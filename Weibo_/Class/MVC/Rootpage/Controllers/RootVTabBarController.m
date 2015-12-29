@@ -13,7 +13,7 @@
 #import "PersonalTableViewController.h"
 #import "WeiboTabBar.h"
 
-@interface RootVTabBarController () {
+@interface RootVTabBarController () <WeiboTabBarDelegate> {
 
 }
 
@@ -43,8 +43,18 @@
     self.tabBar.hidden = YES;
     
     self.wbTabBar = [[WeiboTabBar alloc] initWithFrame:CGRectMake(0, ScreenHeight - 49, ScreenWidth, 49)];
+//    self.wbTabBar.delegate = self;
+    
+    __weak typeof(self) weakSelf = self;
+    self.wbTabBar.passBlock = ^(NSInteger index){
+        weakSelf.selectedIndex = index;
+    };
+    
+    
     [self.view addSubview:self.wbTabBar];
-    self.wbTabBar.backgroundColor = [UIColor orangeColor];
+    
+    //通过图片取出corlor
+    self.wbTabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];
 }
 
 - (void)addViewControllers {
@@ -97,14 +107,13 @@
         self.wbTabBar.tabBarItem = VC.tabBarItem;
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - <WeiboTabBarDelegate>
+
+- (void)passIndex:(NSInteger)index {
+
+    self.selectedIndex = index;
 }
-*/
+
 
 @end

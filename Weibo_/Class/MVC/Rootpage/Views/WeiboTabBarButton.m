@@ -65,7 +65,7 @@
     CGFloat titleX = 0;
     CGFloat titleY = CGRectGetHeight(contentRect) * _ratio;
     CGFloat titleW = CGRectGetWidth(contentRect);
-    CGFloat titleH = CGRectGetHeight(contentRect) * (1 -self.ratio);
+    CGFloat titleH = CGRectGetHeight(contentRect) * (1 - self.ratio);
     
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
