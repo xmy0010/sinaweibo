@@ -15,10 +15,31 @@
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 @property (nonatomic, strong) WeiboTabBarButton *selectedButton;
 
+//中间的加号按钮
+@property (nonatomic, strong) UIButton *plusButton;
+
 
 @end
 
 @implementation WeiboTabBar
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        //创建一个按钮 设置一次性的属性
+        UIButton *plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:plusButton];
+        [plusButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+        [plusButton setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+        [plusButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
+        [plusButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
+        
+        self.plusButton = plusButton;
+        
+    }
+    return self;
+}
 
 - (NSMutableArray *)buttonArray {
 
@@ -61,10 +82,23 @@
     if (self.buttonArray.count == 0) {
         return;
     }
-    CGFloat btnWidth = CGRectGetWidth(self.frame) / (CGFloat)self.buttonArray.count;
+    CGFloat btnWidth = CGRectGetWidth(self.frame) / (CGFloat)(self.buttonArray.count + 1);
+    CGFloat plusW = self.plusButton.currentBackgroundImage.size.width;
+    CGFloat plusH = self.plusButton.currentBackgroundImage.size.height;
+    self.plusButton.frame = CGRectMake(0, 0, plusW, plusH);
+//    self.plusButton.center = self.center; //这样写button 会在下面
+    
+    self.plusButton.center = CGPointMake(CGRectGetWidth(self.frame) * 0.5, CGRectGetHeight(self.frame) * 0.5);
+    
+    
+    
     for (int i = 0; i < self.buttonArray.count; i++) {
+    
         WeiboTabBarButton *btn = self.buttonArray[i];
         CGFloat buttonX = btnWidth * i;
+        if (i >= 2) {
+            buttonX += btnWidth;
+        }
         CGFloat buttonY = 0;
         CGFloat buttonW = btnWidth;
         CGFloat buttonH = CGRectGetHeight(self.frame);

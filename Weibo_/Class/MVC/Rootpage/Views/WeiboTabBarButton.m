@@ -70,4 +70,9 @@
     return CGRectMake(titleX, titleY, titleW, titleH);
 }
 
+//拦截高亮状态响应 
+- (void)setHighlighted:(BOOL)highlighted {
+
+}
+
 @end
