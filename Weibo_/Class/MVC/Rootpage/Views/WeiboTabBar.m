@@ -32,14 +32,16 @@
     //获取到 title image
     //此函数调用一次创建一个Button
     WeiboTabBarButton *button = [WeiboTabBarButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:tabBarItem.title forState:UIControlStateNormal];
-    [button setImage:tabBarItem.image forState:UIControlStateNormal];
-    [button setImage:tabBarItem.selectedImage forState:UIControlStateSelected];
+    self.tabBarItem = tabBarItem;
     
     [self addSubview:button];
+    button.ratio = .67;
     
     //存储在全局按钮数组里面
     [self.buttonArray addObject:button];
+    
+//    button.imageEdgeInsets = UIEdgeInsetsMake(0, 40, 20, 10);
+//    button.titleEdgeInsets = UIEdgeInsetsMake(20, -10, 0, 10);
 }
 
 - (void)layoutSubviews {

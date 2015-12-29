@@ -10,4 +10,8 @@
 
 @interface WeiboTabBarButton : UIButton
 
+//图片高度占整个按钮的比例 0~1  default 0.6
+@property (nonatomic, assign) CGFloat ratio;
+@property (nonatomic, strong) UITabBarItem * tabBarItem;
+
 @end
