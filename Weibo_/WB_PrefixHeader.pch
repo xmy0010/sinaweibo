@@ -1,0 +1,17 @@
+//
+//  WB_PrefixHeader.pch
+//  Weibo_
+//
+//  Created by 千锋 on 15/12/29.
+//  Copyright (c) 2015年 千锋. All rights reserved.
+//
+
+#ifndef Weibo__WB_PrefixHeader_pch
+#define Weibo__WB_PrefixHeader_pch
+
+//尺寸相关
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#endif
