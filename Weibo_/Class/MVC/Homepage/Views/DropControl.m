@@ -176,13 +176,15 @@ static NSString *dropCellID = @"DropCellID";
 }
 
 #pragma warning --
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     //反选 --
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     [self hideWithType:HideDropTypeFromInside withIndexPath:indexPath.row];
-   
+    
+
 }
 
 @end
