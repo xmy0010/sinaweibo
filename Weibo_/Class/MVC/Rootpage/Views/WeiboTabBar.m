@@ -37,6 +37,8 @@
         
         self.plusButton = plusButton;
         
+        [plusButton addTarget:self action:@selector(plusButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return self;
 }
@@ -131,6 +133,13 @@
     //响应Block的方法
     if (_passBlock) {
         _passBlock(index);
+    }
+}
+
+- (void)plusButtonPressed:(WeiboTabBarButton *)sender {
+
+    if (_plusButtonBlock) {
+        _plusButtonBlock(sender);
     }
 }
 

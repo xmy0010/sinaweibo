@@ -12,16 +12,26 @@
 #import "MessageTableViewController.h"
 #import "PersonalTableViewController.h"
 #import "WeiboTabBar.h"
+#import <PopMenu.h>
 
-@interface RootVTabBarController () <WeiboTabBarDelegate> {
+@interface RootVTabBarController ()  {
 
 }
 
 @property (nonatomic, strong) WeiboTabBar *wbTabBar; //自定义tabbar
+@property (nonatomic, strong) PopMenu *popMenu;
 
 @end
 
 @implementation RootVTabBarController
+
+- (PopMenu *)popMenu {
+
+    if (_popMenu == nil) {
+        NSMutableArray *items = @[].mutableCopy;
+        _popMenu = [PopMenu alloc] initWithFrame:<#(CGRect)#> items:<#(NSArray *)#>
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +58,11 @@
     __weak typeof(self) weakSelf = self;
     self.wbTabBar.passBlock = ^(NSInteger index){
         weakSelf.selectedIndex = index;
+    };
+    
+    self.wbTabBar.plusButtonBlock = ^(WeiboTabBarButton *sender) {
+    
+        //显示弹出界面
     };
     
     

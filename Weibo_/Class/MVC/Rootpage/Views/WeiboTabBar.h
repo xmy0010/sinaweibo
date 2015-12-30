@@ -7,21 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol WeiboTabBarDelegate <NSObject>
-
-- (void)passIndex:(NSInteger)index;
-
-@end
+@class WeiboTabBarButton;
+//
+//@protocol WeiboTabBarDelegate <NSObject>
+//
+//- (void)passIndex:(NSInteger)index;
+//
+//@end
 
 typedef void(^WeiboTabBarBlock)(NSInteger);
+typedef void(^PlusButtonBlock)(WeiboTabBarButton *);
 
 @interface WeiboTabBar : UIView
 
 //用来传递信息
 @property (nonatomic, strong) UITabBarItem *tabBarItem;
-@property (nonatomic, weak) id <WeiboTabBarDelegate> delegate;
+//@property (nonatomic, weak) id <WeiboTabBarDelegate> delegate;
 
 @property (nonatomic, copy) WeiboTabBarBlock passBlock;
+@property (nonatomic, copy) PlusButtonBlock plusButtonBlock;
 
 @end
