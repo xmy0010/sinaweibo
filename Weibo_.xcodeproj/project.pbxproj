@@ -20,6 +20,9 @@
 		BCA9F0FC1C32209500ED20D9 /* DisscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0FB1C32209500ED20D9 /* DisscoveryTableViewController.m */; };
 		BCA9F0FF1C322F0000ED20D9 /* WeiboTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0FE1C322F0000ED20D9 /* WeiboTabBar.m */; };
 		BCA9F1021C322F8E00ED20D9 /* WeiboTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F1011C322F8E00ED20D9 /* WeiboTabBarButton.m */; };
+		BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */; };
+		BCE1423C1C33867F006839B4 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1423B1C33867F006839B4 /* TitleButton.m */; };
+		BCE1423F1C33B72F006839B4 /* DropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1423E1C33B72F006839B4 /* DropControl.m */; };
 		E69C56C23D3ED79BC3299146 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E961B2F876F84E129931E4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,12 @@
 		BCA9F1001C322F8E00ED20D9 /* WeiboTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTabBarButton.h; sourceTree = "<group>"; };
 		BCA9F1011C322F8E00ED20D9 /* WeiboTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTabBarButton.m; sourceTree = "<group>"; };
 		BCA9F1031C32310700ED20D9 /* WB_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WB_PrefixHeader.pch; sourceTree = "<group>"; };
+		BCE142371C33820A006839B4 /* UIBarButtonItem+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Util.h"; sourceTree = "<group>"; };
+		BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Util.m"; sourceTree = "<group>"; };
+		BCE1423A1C33867F006839B4 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
+		BCE1423B1C33867F006839B4 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		BCE1423D1C33B72F006839B4 /* DropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropControl.h; sourceTree = "<group>"; };
+		BCE1423E1C33B72F006839B4 /* DropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropControl.m; sourceTree = "<group>"; };
 		E6182CB2B951FBA7BBE26047 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +171,7 @@
 		BCA9F0D41C321E1300ED20D9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				BCE142361C3381DC006839B4 /* Categories */,
 				BCA9F0D51C321E1300ED20D9 /* 3rd */,
 				BCA9F0D61C321E1300ED20D9 /* MVC */,
 				BCA9F0EB1C321E1300ED20D9 /* Resource */,
@@ -250,6 +260,10 @@
 		BCA9F0DE1C321E1300ED20D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCE1423A1C33867F006839B4 /* TitleButton.h */,
+				BCE1423B1C33867F006839B4 /* TitleButton.m */,
+				BCE1423D1C33B72F006839B4 /* DropControl.h */,
+				BCE1423E1C33B72F006839B4 /* DropControl.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,6 +395,15 @@
 				BCA9F0BD1C321AAC00ED20D9 /* LaunchScreen.xib */,
 			);
 			name = InterfaceBuilder;
+			sourceTree = "<group>";
+		};
+		BCE142361C3381DC006839B4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BCE142371C33820A006839B4 /* UIBarButtonItem+Util.h */,
+				BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,13 +558,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA9F1021C322F8E00ED20D9 /* WeiboTabBarButton.m in Sources */,
+				BCE1423C1C33867F006839B4 /* TitleButton.m in Sources */,
 				BCA9F0F31C32205800ED20D9 /* HomeTableViewController.m in Sources */,
 				BCA9F0FC1C32209500ED20D9 /* DisscoveryTableViewController.m in Sources */,
 				BCA9F0FF1C322F0000ED20D9 /* WeiboTabBar.m in Sources */,
 				BCA9F0F61C32207200ED20D9 /* MessageTableViewController.m in Sources */,
+				BCE1423F1C33B72F006839B4 /* DropControl.m in Sources */,
 				BCA9F0F01C321ECE00ED20D9 /* RootVTabBarController.m in Sources */,
 				BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */,
 				BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */,
+				BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */,
 				BCA9F0F91C32208200ED20D9 /* PersonalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

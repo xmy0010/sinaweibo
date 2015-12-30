@@ -29,8 +29,33 @@
 
     if (_popMenu == nil) {
         NSMutableArray *items = @[].mutableCopy;
-        _popMenu = [PopMenu alloc] initWithFrame:<#(CGRect)#> items:<#(NSArray *)#>
+      
+        NSArray *titles = @[@"文字",
+                            @"相册",
+                            @"微博",
+                            @"签到",
+                            @"点评",
+                            @"更多"];
+        NSArray *imageNames = @[@"tabbar_compose_idea",
+                                @"tabbar_compose_photo",
+                                @"tabbar_compose_weibo",
+                                @"tabbar_compose_lbs",
+                                @"tabbar_compose_review",
+                                @"tabbar_compose_more"];
+        for (int index; index < titles.count; index++) {
+            MenuItem *item = [[MenuItem alloc] initWithTitle:titles[index] iconName:imageNames[index] glowColor:[UIColor magentaColor]];
+            [items addObject:item];
+        }
+        
+        _popMenu = [[PopMenu alloc] initWithFrame:[UIScreen mainScreen].bounds items:items];
+        
+        _popMenu.didSelectedItemCompletion = ^ (MenuItem *selectedItem) {
+        
+            NSLog(@"点了%@", selectedItem.title);
+        };
     }
+    
+    return _popMenu;
 }
 
 - (void)viewDidLoad {
@@ -63,6 +88,7 @@
     self.wbTabBar.plusButtonBlock = ^(WeiboTabBarButton *sender) {
     
         //显示弹出界面
+        [weakSelf.popMenu showMenuAtView:weakSelf.view];
     };
     
     
