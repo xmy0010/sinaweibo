@@ -13,6 +13,7 @@
 
 @interface HomeTableViewController ()
 
+//下拉框
 @property (nonatomic, strong) DropControl *dropControl;
 
 @end
@@ -22,7 +23,17 @@
 - (DropControl *)dropControl {
 
     if (_dropControl == nil) {
-        _dropControl = [[DropControl alloc] initWithInsideViewFrame:CGRectZero inView:self.tabBarController.view];
+        _dropControl = [[DropControl alloc] initWithInsideViewFrame:CGRectMake(100, 60, 180, 300) inView:self.tabBarController.view];
+        
+        __weak typeof(self) weakSelf = self;
+        _dropControl.dismissCompletion = ^{
+        
+            //隐藏之后回调的
+            TitleButton *button = (TitleButton *)weakSelf.navigationItem.titleView;
+            if (button.selected == YES) {
+                button.selected = NO;
+            }
+        };
     }
     
     return _dropControl;

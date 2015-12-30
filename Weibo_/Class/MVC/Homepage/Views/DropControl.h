@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^DismissCompletion)();
+
 @interface DropControl : UIControl
 
+//点击自身隐藏之后回调
+@property (nonatomic, copy) DismissCompletion dismissCompletion;
 /**
  *
  *  @param frame 内部显示出来的选项的位置
