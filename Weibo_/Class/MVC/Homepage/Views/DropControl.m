@@ -8,6 +8,12 @@
 
 #import "DropControl.h"
 
+//点击何处 drop消失
+typedef NS_ENUM(NSInteger, HideDropType) {
+        HideDropTypeOutside,
+        HideDropTypeFromInside
+};
+
 static CGFloat rowHeight = 25;
 static NSString *dropCellID = @"DropCellID";
 
@@ -18,13 +24,14 @@ static NSString *dropCellID = @"DropCellID";
 @property (nonatomic, strong) UIImageView *dropImageView;
 @property (nonatomic, assign) CGRect imageFrame;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataArray;
 
 
 @end
 
 @implementation DropControl
 
-- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)view {
+- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)view dataSource:(NSArray *)dataArray{
 
     if (self = [super init]) {
         self.obj_superView = view;
@@ -32,6 +39,9 @@ static NSString *dropCellID = @"DropCellID";
         self.frame = [UIScreen mainScreen].bounds;
         //将传入的子视图的frame记录下来
         self.imageFrame = frame;
+        
+        //存储传入的数据源
+        self.dataArray = [dataArray copy];
         
         self.backgroundColor = [UIColor clearColor];
         [self addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchDown];
@@ -55,6 +65,13 @@ static NSString *dropCellID = @"DropCellID";
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.dropImageView addSubview:_tableView];
+        
+        //设置一个中间变量 计算tableView需要的高度
+        CGRect absluteRect = self.tableView.frame;
+        //估算高度 如果估算高度超过了限制的最大高度 则让其就等于最大高度
+        CGFloat tableHeight = self.dataArray.count * rowHeight > absluteRect.size.height ? absluteRect.size.height : self.dataArray.count * rowHeight;
+        absluteRect.size.height = tableHeight;
+        self.tableView.frame = absluteRect;
     }
     return self;
 }
@@ -66,14 +83,21 @@ static NSString *dropCellID = @"DropCellID";
     //动画显示
     CGRect rect  = self.imageFrame;
     rect.size.height = 0;
+
     //先给一个初始位置 再用动画让其到应该的位置
     self.dropImageView.frame = rect;
+ 
+    //设置一个中间变量 计算tableView需要的高度
+    CGRect absluteRect = self.tableView.frame;
+    CGFloat tableHeight = self.dataArray.count * rowHeight > absluteRect.size.height ? absluteRect.size.height : self.dataArray.count * rowHeight;
+    rect.size.height = tableHeight + 25;
     
+   
 
     self.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.75 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
-     self.dropImageView.frame = self.imageFrame;
+     self.dropImageView.frame = rect;
     } completion:nil];
     self.userInteractionEnabled = YES;
 }
@@ -84,6 +108,11 @@ static NSString *dropCellID = @"DropCellID";
 }
 
 - (void)hide {
+    
+    [self hideWithType:HideDropTypeOutside withIndexPath:-1];
+}
+
+- (void)hideWithType:(HideDropType)type withIndexPath:(NSInteger)index {
 
     CGRect rect = self.imageFrame;
     rect.size.height = 0;
@@ -94,9 +123,28 @@ static NSString *dropCellID = @"DropCellID";
     } completion:^(BOOL finished){
         
         [self dismiss];
-        if (_dismissCompletion) {
-            _dismissCompletion();
+        
+        switch (type) {
+            case HideDropTypeOutside: {
+                if (_dismissCompletion) {
+                    _dismissCompletion();
+                }
+            }
+                break;
+            case HideDropTypeFromInside: {
+                if (_didselectedIndexBlock) {
+                    _didselectedIndexBlock(index);
+                }
+                if (_dismissCompletion) {
+                    _dismissCompletion();
+                }
+                
+            }
+                break;
+            default:
+                break;
         }
+        
     }];
     self.userInteractionEnabled = YES;
 }
@@ -110,7 +158,7 @@ static NSString *dropCellID = @"DropCellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,10 +166,23 @@ static NSString *dropCellID = @"DropCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dropCellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dropCellID];
+        cell.backgroundColor = [UIColor clearColor];
     }
-    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text = self.dataArray[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
     
     return cell;
+}
+
+#pragma warning --
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    //反选 --
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self hideWithType:HideDropTypeFromInside withIndexPath:indexPath.row];
+   
 }
 
 @end

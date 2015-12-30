@@ -23,7 +23,14 @@
 - (DropControl *)dropControl {
 
     if (_dropControl == nil) {
-        _dropControl = [[DropControl alloc] initWithInsideViewFrame:CGRectMake(100, 60, 180, 300) inView:self.tabBarController.view];
+        
+        NSArray *dataArray = @[@"This",
+                               @"gay",
+                               @"heHas",
+                               @"timeMechine",
+                               @"sketch"];
+        
+        _dropControl = [[DropControl alloc] initWithInsideViewFrame:CGRectMake(100, 60, 180, 300) inView:self.tabBarController.view dataSource:dataArray];
         
         __weak typeof(self) weakSelf = self;
         _dropControl.dismissCompletion = ^{
@@ -33,6 +40,11 @@
             if (button.selected == YES) {
                 button.selected = NO;
             }
+        };
+        
+        _dropControl.didselectedIndexBlock = ^(NSInteger index){
+            //code here...
+            
         };
     }
     
