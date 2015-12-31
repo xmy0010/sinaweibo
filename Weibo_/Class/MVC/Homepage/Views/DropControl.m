@@ -179,9 +179,7 @@ static NSString *dropCellID = @"DropCellID";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    //反选 --
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    //反选 --    
     [self hideWithType:HideDropTypeFromInside withIndexPath:indexPath.row];
     
 
