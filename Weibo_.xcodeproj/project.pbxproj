@@ -25,6 +25,7 @@
 		BCA9F0FC1C32209500ED20D9 /* DisscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0FB1C32209500ED20D9 /* DisscoveryTableViewController.m */; };
 		BCA9F0FF1C322F0000ED20D9 /* WeiboTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0FE1C322F0000ED20D9 /* WeiboTabBar.m */; };
 		BCA9F1021C322F8E00ED20D9 /* WeiboTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F1011C322F8E00ED20D9 /* WeiboTabBarButton.m */; };
+		BCBADF501C3525700027866C /* AFHTTPSessionManager+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBADF4F1C3525700027866C /* AFHTTPSessionManager+Util.m */; };
 		BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */; };
 		BCE1423C1C33867F006839B4 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1423B1C33867F006839B4 /* TitleButton.m */; };
 		BCE1423F1C33B72F006839B4 /* DropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE1423E1C33B72F006839B4 /* DropControl.m */; };
@@ -80,6 +81,8 @@
 		BCA9F1001C322F8E00ED20D9 /* WeiboTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTabBarButton.h; sourceTree = "<group>"; };
 		BCA9F1011C322F8E00ED20D9 /* WeiboTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTabBarButton.m; sourceTree = "<group>"; };
 		BCA9F1031C32310700ED20D9 /* WB_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WB_PrefixHeader.pch; sourceTree = "<group>"; };
+		BCBADF4E1C3525700027866C /* AFHTTPSessionManager+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Util.h"; sourceTree = "<group>"; };
+		BCBADF4F1C3525700027866C /* AFHTTPSessionManager+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Util.m"; sourceTree = "<group>"; };
 		BCE142371C33820A006839B4 /* UIBarButtonItem+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Util.h"; sourceTree = "<group>"; };
 		BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Util.m"; sourceTree = "<group>"; };
 		BCE1423A1C33867F006839B4 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */,
 				BC1C6EFD1C34D3AD00F71F17 /* UIImage+Util.h */,
 				BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */,
+				BCBADF4E1C3525700027866C /* AFHTTPSessionManager+Util.h */,
+				BCBADF4F1C3525700027866C /* AFHTTPSessionManager+Util.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				BC1C6F061C34DB4A00F71F17 /* NewFeatureViewController.m in Sources */,
 				BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */,
 				BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */,
+				BCBADF501C3525700027866C /* AFHTTPSessionManager+Util.m in Sources */,
 				BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */,
 				BCA9F0F91C32208200ED20D9 /* PersonalTableViewController.m in Sources */,
 			);

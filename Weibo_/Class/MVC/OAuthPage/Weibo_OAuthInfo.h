@@ -9,6 +9,9 @@
 #ifndef Weibo__Weibo_OAuthInfo_h
 #define Weibo__Weibo_OAuthInfo_h
 
+//三方库
+#import <AFNetworking.h>
+
 //appkey
 #define WB_APPKEY @"2738869356"
 //密钥

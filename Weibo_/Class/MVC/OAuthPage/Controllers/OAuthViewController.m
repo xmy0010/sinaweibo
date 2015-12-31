@@ -61,10 +61,19 @@
         
         //第二步 。。。
         
+        [self getAccesstokenWithCode:code];
+        
         //如果是获取到授权code的页面  拿到code 页面不需要
         return NO;
     }
     return YES;
+}
+
+-(void)getAccesstokenWithCode:(NSString *)code {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+  
+    
 }
 
 /*
