@@ -44,7 +44,7 @@
         
         _dropControl.didselectedIndexBlock = ^(NSInteger index){
             //code here...
-            
+            NSLog(@"%ld", index);
         };
     }
     
