@@ -10,6 +10,8 @@
 		BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */; };
 		BC1C6EFF1C34D3AD00F71F17 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */; };
 		BC1C6F061C34DB4A00F71F17 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6F051C34DB4A00F71F17 /* NewFeatureViewController.m */; };
+		BC1C6F0D1C3512FF00F71F17 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6F0C1C3512FF00F71F17 /* OAuthViewController.m */; };
+		BC1C6F101C35157300F71F17 /* OAuthStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1C6F0F1C35157300F71F17 /* OAuthStoryboard.storyboard */; };
 		BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B01C321AAC00ED20D9 /* main.m */; };
 		BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B31C321AAC00ED20D9 /* AppDelegate.m */; };
 		BCA9F0BA1C321AAC00ED20D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA9F0B81C321AAC00ED20D9 /* Main.storyboard */; };
@@ -48,6 +50,10 @@
 		BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		BC1C6F041C34DB4A00F71F17 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		BC1C6F051C34DB4A00F71F17 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		BC1C6F0B1C3512FF00F71F17 /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
+		BC1C6F0C1C3512FF00F71F17 /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
+		BC1C6F0E1C35140400F71F17 /* Weibo_OAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weibo_OAuthInfo.h; sourceTree = "<group>"; };
+		BC1C6F0F1C35157300F71F17 /* OAuthStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuthStoryboard.storyboard; sourceTree = "<group>"; };
 		BCA9F0AB1C321AAC00ED20D9 /* Weibo_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA9F0AF1C321AAC00ED20D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCA9F0B01C321AAC00ED20D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +158,41 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BC1C6F071C3512BF00F71F17 /* OAuthPage */ = {
+			isa = PBXGroup;
+			children = (
+				BC1C6F081C3512BF00F71F17 /* Controllers */,
+				BC1C6F091C3512BF00F71F17 /* Models */,
+				BC1C6F0A1C3512BF00F71F17 /* Views */,
+				BC1C6F0E1C35140400F71F17 /* Weibo_OAuthInfo.h */,
+			);
+			path = OAuthPage;
+			sourceTree = "<group>";
+		};
+		BC1C6F081C3512BF00F71F17 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC1C6F0B1C3512FF00F71F17 /* OAuthViewController.h */,
+				BC1C6F0C1C3512FF00F71F17 /* OAuthViewController.m */,
+				BC1C6F0F1C35157300F71F17 /* OAuthStoryboard.storyboard */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC1C6F091C3512BF00F71F17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC1C6F0A1C3512BF00F71F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BCA9F0A21C321AAC00ED20D9 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +272,7 @@
 		BCA9F0D61C321E1300ED20D9 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				BC1C6F071C3512BF00F71F17 /* OAuthPage */,
 				BC1C6F001C34DB0C00F71F17 /* NewFeaturePage */,
 				BCA9F0D71C321E1300ED20D9 /* DisscoveryPage */,
 				BCA9F0DB1C321E1300ED20D9 /* Homepage */,
@@ -539,6 +581,7 @@
 				BCA9F0BA1C321AAC00ED20D9 /* Main.storyboard in Resources */,
 				BCA9F0BF1C321AAC00ED20D9 /* LaunchScreen.xib in Resources */,
 				BCA9F0BC1C321AAC00ED20D9 /* Images.xcassets in Resources */,
+				BC1C6F101C35157300F71F17 /* OAuthStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1C6F0D1C3512FF00F71F17 /* OAuthViewController.m in Sources */,
 				BCA9F1021C322F8E00ED20D9 /* WeiboTabBarButton.m in Sources */,
 				BCE1423C1C33867F006839B4 /* TitleButton.m in Sources */,
 				BCA9F0F31C32205800ED20D9 /* HomeTableViewController.m in Sources */,

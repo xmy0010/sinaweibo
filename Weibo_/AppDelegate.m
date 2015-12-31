@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootVTabBarController.h"
 #import "NewFeatureViewController.h"
+#import "OAuthViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +25,13 @@
     self.window.backgroundColor = [UIColor whiteColor];
 //    self.window.rootViewController = [[RootVTabBarController alloc] init];
     
-    self.window.rootViewController = [[NewFeatureViewController alloc] init];
+//self.window.rootViewController = [[NewFeatureViewController alloc] init];
+  
     
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"OAuthStoryboard" bundle:nil];
+    
+    OAuthViewController *OAuthVC = [sb instantiateViewControllerWithIdentifier:@"OAuthViewController"];
+    self.window.rootViewController = OAuthVC;
     [self.window makeKeyWindow];
     
 
