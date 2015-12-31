@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootVTabBarController.h"
+#import "NewFeatureViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[RootVTabBarController alloc] init];
+//    self.window.rootViewController = [[RootVTabBarController alloc] init];
+    
+    self.window.rootViewController = [[NewFeatureViewController alloc] init];
+    
     [self.window makeKeyWindow];
     
 

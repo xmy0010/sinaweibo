@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */; };
 		BC1C6EFF1C34D3AD00F71F17 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */; };
+		BC1C6F061C34DB4A00F71F17 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6F051C34DB4A00F71F17 /* NewFeatureViewController.m */; };
 		BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B01C321AAC00ED20D9 /* main.m */; };
 		BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B31C321AAC00ED20D9 /* AppDelegate.m */; };
 		BCA9F0BA1C321AAC00ED20D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA9F0B81C321AAC00ED20D9 /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 		BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBBadgeButton.m; path = Weibo_/Class/MVC/Rootpage/Views/WBBadgeButton.m; sourceTree = SOURCE_ROOT; };
 		BC1C6EFD1C34D3AD00F71F17 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
 		BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
+		BC1C6F041C34DB4A00F71F17 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
+		BC1C6F051C34DB4A00F71F17 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
 		BCA9F0AB1C321AAC00ED20D9 /* Weibo_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA9F0AF1C321AAC00ED20D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCA9F0B01C321AAC00ED20D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +117,39 @@
 				0EA936ED156F527DAF7790A5 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC1C6F001C34DB0C00F71F17 /* NewFeaturePage */ = {
+			isa = PBXGroup;
+			children = (
+				BC1C6F011C34DB0C00F71F17 /* Controllers */,
+				BC1C6F021C34DB0C00F71F17 /* Models */,
+				BC1C6F031C34DB0C00F71F17 /* Views */,
+			);
+			path = NewFeaturePage;
+			sourceTree = "<group>";
+		};
+		BC1C6F011C34DB0C00F71F17 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC1C6F041C34DB4A00F71F17 /* NewFeatureViewController.h */,
+				BC1C6F051C34DB4A00F71F17 /* NewFeatureViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC1C6F021C34DB0C00F71F17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC1C6F031C34DB0C00F71F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BCA9F0A21C321AAC00ED20D9 = {
@@ -195,6 +231,7 @@
 		BCA9F0D61C321E1300ED20D9 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				BC1C6F001C34DB0C00F71F17 /* NewFeaturePage */,
 				BCA9F0D71C321E1300ED20D9 /* DisscoveryPage */,
 				BCA9F0DB1C321E1300ED20D9 /* Homepage */,
 				BCA9F0DF1C321E1300ED20D9 /* MessagePage */,
@@ -577,6 +614,7 @@
 				BCE1423F1C33B72F006839B4 /* DropControl.m in Sources */,
 				BCA9F0F01C321ECE00ED20D9 /* RootVTabBarController.m in Sources */,
 				BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */,
+				BC1C6F061C34DB4A00F71F17 /* NewFeatureViewController.m in Sources */,
 				BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */,
 				BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */,
 				BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */,
