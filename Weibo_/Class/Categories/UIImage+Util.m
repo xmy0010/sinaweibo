@@ -18,7 +18,7 @@
     //让图片可以自动拉伸
     CGSize imageSize = image.size;
     
-    image = [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:imageSize.height * 0.5];
+    image = [image stretchableImageWithLeftCapWidth:imageSize.width * 0.5 topCapHeight:imageSize.height * 0.5];
     
     return image;
 }

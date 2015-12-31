@@ -47,7 +47,7 @@
     
     //计算文字占用的大小
     CGSize wSize = [badgeValue sizeWithAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]}];
-    CGFloat width = wSize.width > imageSize.width ? wSize.width : imageSize.width;
+    CGFloat width = wSize.width > imageSize.width ? wSize.width + 10: imageSize.width;
     rect.size.width = width;
     rect.origin.x = self.superview.frame.size.width - width;
     
