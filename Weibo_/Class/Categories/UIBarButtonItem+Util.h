@@ -10,6 +10,8 @@
 
 @interface UIBarButtonItem (Util)
 
-+ (instancetype)generateBarButtonItemWithNormalImageName: (NSString *)norImageName highlightedImageName:(NSString *)hlimageName;
+//传入 图片名称来创建barButtontItem
+
++ (instancetype)generateBarButtonItemWithNormalImageName: (NSString *)norImageName highlightedImageName:(NSString *)hlimageName target:(id)target selector:(SEL)sel;
 
 @end

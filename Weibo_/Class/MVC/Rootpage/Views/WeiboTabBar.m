@@ -54,6 +54,8 @@
 
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem {
 
+    _tabBarItem = tabBarItem;
+    
     //获取到 title image
     //此函数调用一次创建一个Button
     WeiboTabBarButton *button = [WeiboTabBarButton buttonWithType:UIButtonTypeCustom];

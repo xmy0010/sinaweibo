@@ -81,9 +81,9 @@
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     //类别写创建方法 更好的封装性
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormalImageName:@"navigationbar_friendattention" highlightedImageName:@"navigationbar_friendattention_highlighted"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormalImageName:@"navigationbar_friendattention" highlightedImageName:@"navigationbar_friendattention_highlighted" target:self selector:@selector(leftBarButtonItemPressed:)];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormalImageName:@"navigationbar_icon_radar" highlightedImageName:@"navigationbar_icon_radar_highlighted"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormalImageName:@"navigationbar_icon_radar" highlightedImageName:@"navigationbar_icon_radar_highlighted" target:self selector:@selector(rightBarButtonItemPressed:)];
     
     
     TitleButton *titleButton = [TitleButton buttonWithType:UIButtonTypeCustom];
@@ -117,6 +117,18 @@
     
     
 }
+
+- (void)leftBarButtonItemPressed:(UIBarButtonItem *)sender{
+
+    self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%u", arc4random() % 1000];
+    
+}
+
+- (void)rightBarButtonItemPressed:(UIBarButtonItem *)sender {
+
+    
+}
+
 
 #pragma mark - Table view data source
 

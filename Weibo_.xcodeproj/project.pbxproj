@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */; };
+		BC1C6EFF1C34D3AD00F71F17 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */; };
 		BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B01C321AAC00ED20D9 /* main.m */; };
 		BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA9F0B31C321AAC00ED20D9 /* AppDelegate.m */; };
 		BCA9F0BA1C321AAC00ED20D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA9F0B81C321AAC00ED20D9 /* Main.storyboard */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		0EA936ED156F527DAF7790A5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A6E961B2F876F84E129931E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC1C6EFA1C34BE7C00F71F17 /* WBBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBBadgeButton.h; path = Weibo_/Class/MVC/Rootpage/Views/WBBadgeButton.h; sourceTree = SOURCE_ROOT; };
+		BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBBadgeButton.m; path = Weibo_/Class/MVC/Rootpage/Views/WBBadgeButton.m; sourceTree = SOURCE_ROOT; };
+		BC1C6EFD1C34D3AD00F71F17 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
+		BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		BCA9F0AB1C321AAC00ED20D9 /* Weibo_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA9F0AF1C321AAC00ED20D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCA9F0B01C321AAC00ED20D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -363,6 +369,8 @@
 		BCA9F0EA1C321E1300ED20D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC1C6EFA1C34BE7C00F71F17 /* WBBadgeButton.h */,
+				BC1C6EFB1C34BE7C00F71F17 /* WBBadgeButton.m */,
 				BCA9F0FD1C322F0000ED20D9 /* WeiboTabBar.h */,
 				BCA9F0FE1C322F0000ED20D9 /* WeiboTabBar.m */,
 				BCA9F1001C322F8E00ED20D9 /* WeiboTabBarButton.h */,
@@ -402,6 +410,8 @@
 			children = (
 				BCE142371C33820A006839B4 /* UIBarButtonItem+Util.h */,
 				BCE142381C33820A006839B4 /* UIBarButtonItem+Util.m */,
+				BC1C6EFD1C34D3AD00F71F17 /* UIImage+Util.h */,
+				BC1C6EFE1C34D3AD00F71F17 /* UIImage+Util.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -562,12 +572,14 @@
 				BCA9F0F31C32205800ED20D9 /* HomeTableViewController.m in Sources */,
 				BCA9F0FC1C32209500ED20D9 /* DisscoveryTableViewController.m in Sources */,
 				BCA9F0FF1C322F0000ED20D9 /* WeiboTabBar.m in Sources */,
+				BC1C6EFF1C34D3AD00F71F17 /* UIImage+Util.m in Sources */,
 				BCA9F0F61C32207200ED20D9 /* MessageTableViewController.m in Sources */,
 				BCE1423F1C33B72F006839B4 /* DropControl.m in Sources */,
 				BCA9F0F01C321ECE00ED20D9 /* RootVTabBarController.m in Sources */,
 				BCA9F0B41C321AAC00ED20D9 /* AppDelegate.m in Sources */,
 				BCA9F0B11C321AAC00ED20D9 /* main.m in Sources */,
 				BCE142391C33820A006839B4 /* UIBarButtonItem+Util.m in Sources */,
+				BC1C6EFC1C34BE7C00F71F17 /* WBBadgeButton.m in Sources */,
 				BCA9F0F91C32208200ED20D9 /* PersonalTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

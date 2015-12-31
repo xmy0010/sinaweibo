@@ -7,6 +7,14 @@
 //
 
 #import "WeiboTabBarButton.h"
+#import "WBBadgeButton.h"
+
+@interface WeiboTabBarButton ()
+
+//角标
+@property (nonatomic, strong) WBBadgeButton *badgeButton;
+
+@end
 
 @implementation WeiboTabBarButton
 
@@ -20,6 +28,10 @@
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
 //        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+        
+        //初始化badge
+        self.badgeButton = [[WBBadgeButton alloc] init];
+        [self addSubview:_badgeButton];
     }
     return self;
 }
@@ -27,6 +39,9 @@
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem {
 
     _tabBarItem = tabBarItem;
+    
+    //将自己添加成观察者 监听 _tabBarItem的角标值
+    [_tabBarItem addObserver:self forKeyPath:@"badgeValue" options:NSKeyValueObservingOptionNew context:nil];
     
     [self setTitleColor:[UIColor lightGrayColor] forState: UIControlStateNormal];
     [self setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
@@ -78,6 +93,29 @@
 //拦截高亮状态响应 
 - (void)setHighlighted:(BOOL)highlighted {
 
+}
+
+//布局子视图
+- (void)layoutSubviews {
+
+    [super layoutSubviews];
+    
+    CGSize size = self.badgeButton.currentBackgroundImage.size;
+    
+    self.badgeButton.frame = CGRectMake(CGRectGetWidth(self.frame) - size.width, 0, size.width, size.height);
+    self.badgeButton.badgeValue = _tabBarItem.badgeValue;
+
+}
+
+#pragma mark -KVO相关
+-(void)dealloc {
+
+    [_tabBarItem removeObserver:self forKeyPath:@"badgeValue"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+    self.badgeButton.badgeValue = _tabBarItem.badgeValue;
 }
 
 @end

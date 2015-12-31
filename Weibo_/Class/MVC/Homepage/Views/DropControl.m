@@ -66,6 +66,9 @@ static NSString *dropCellID = @"DropCellID";
         self.tableView.delegate = self;
         [self.dropImageView addSubview:_tableView];
         
+        //tableview消失慢
+        self.dropImageView.clipsToBounds = YES;
+        
         //设置一个中间变量 计算tableView需要的高度
         CGRect absluteRect = self.tableView.frame;
         //估算高度 如果估算高度超过了限制的最大高度 则让其就等于最大高度
@@ -77,6 +80,7 @@ static NSString *dropCellID = @"DropCellID";
 }
 
 - (void)show {
+    self.userInteractionEnabled = NO;
     
     [self.obj_superView addSubview:self];
 //    CGFloat height = self.imageFrame.size.height;
@@ -94,7 +98,7 @@ static NSString *dropCellID = @"DropCellID";
     
    
 
-    self.userInteractionEnabled = NO;
+    
     [UIView animateWithDuration:0.75 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
      self.dropImageView.frame = rect;

@@ -134,6 +134,8 @@
         VC.tabBarItem.image = [[UIImage imageNamed: norImageArray[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         VC.tabBarItem.selectedImage = [[UIImage imageNamed: selImageArray[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
+        VC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%u", arc4random()%100];
+        
         //修改文字颜色
          NSDictionary *norAttribute = @{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName : [UIColor lightGrayColor]};
          NSDictionary *selAttribute = @{NSFontAttributeName : [UIFont systemFontOfSize:14], NSForegroundColorAttributeName : [UIColor orangeColor]};
@@ -146,6 +148,20 @@
         [self addChildViewController:navigationC];
         
         self.wbTabBar.tabBarItem = VC.tabBarItem;
+        
+        // 当所有的系统自带tabbaritem都已经加载完了，再去删除
+        if (index == VCtitles.count - 1) {
+            for (UIView *view in self.tabBar.subviews) {
+                //                NSLog(@"view = %@",view);
+                
+                Class uitabBarButton = NSClassFromString(@"UITabBarButton");
+                if ([view isKindOfClass:[uitabBarButton class]]) {
+                    [view removeFromSuperview];
+                }
+                
+            }
+        }
+
     }
 }
 

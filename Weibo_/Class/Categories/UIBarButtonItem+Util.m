@@ -11,7 +11,7 @@
 @implementation UIBarButtonItem (Util)
 
 //传入图片名称创建UIBarButtonItem
-+ (instancetype)generateBarButtonItemWithNormalImageName: (NSString *)norImageName highlightedImageName:(NSString *)hlimageName {
++ (instancetype)generateBarButtonItemWithNormalImageName: (NSString *)norImageName highlightedImageName:(NSString *)hlimageName target:(id)target selector:(SEL)sel{
     
     //1.创建按钮
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -20,6 +20,8 @@
     CGSize imageSize = button.currentImage.size;
     button.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
     
+    
+    [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
     //2.创建  UIBarButtonItem对象并返回
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
     
