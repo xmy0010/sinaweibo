@@ -29,6 +29,9 @@
 		11ED9B421C3512F1000F18DF /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B411C3512F1000F18DF /* OAuthViewController.m */; };
 		11ED9B451C35154B000F18DF /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED9B441C35154B000F18DF /* OAuth.storyboard */; };
 		11ED9B481C352572000F18DF /* AFHTTPSessionManager+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B471C352572000F18DF /* AFHTTPSessionManager+Util.m */; };
+		BC803F561C3A015A0046458A /* OAuthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F551C3A015A0046458A /* OAuthModel.m */; };
+		BC803F5A1C3A03E30046458A /* OAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F591C3A03E30046458A /* OAuthTool.m */; };
+		BC803F5E1C3A1C030046458A /* NewfeatureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F5D1C3A1C030046458A /* NewfeatureTool.m */; };
 		FEFE96F48A3B2E2EC6C6C457 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EBD5EBAAF6FCF88E7CFF8A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +93,12 @@
 		44EBD5EBAAF6FCF88E7CFF8A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4713E2C47F0783758B5E3851 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B63502B47308AAA45A91F296 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BC803F541C3A015A0046458A /* OAuthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthModel.h; sourceTree = "<group>"; };
+		BC803F551C3A015A0046458A /* OAuthModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthModel.m; sourceTree = "<group>"; };
+		BC803F581C3A03E30046458A /* OAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthTool.h; sourceTree = "<group>"; };
+		BC803F591C3A03E30046458A /* OAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthTool.m; sourceTree = "<group>"; };
+		BC803F5C1C3A1C030046458A /* NewfeatureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureTool.h; sourceTree = "<group>"; };
+		BC803F5D1C3A1C030046458A /* NewfeatureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +427,7 @@
 		11ED9B351C34DB09000F18DF /* NewfeaturePage */ = {
 			isa = PBXGroup;
 			children = (
+				BC803F5B1C3A1BE20046458A /* Tools */,
 				11ED9B361C34DB09000F18DF /* Controllers */,
 				11ED9B371C34DB09000F18DF /* Models */,
 				11ED9B381C34DB09000F18DF /* Views */,
@@ -451,6 +461,7 @@
 		11ED9B3C1C3512C3000F18DF /* OAuthPage */ = {
 			isa = PBXGroup;
 			children = (
+				BC803F571C3A03CC0046458A /* Tools */,
 				11ED9B3D1C3512C3000F18DF /* Controllers */,
 				11ED9B3E1C3512C3000F18DF /* Models */,
 				11ED9B3F1C3512C3000F18DF /* Views */,
@@ -472,6 +483,8 @@
 		11ED9B3E1C3512C3000F18DF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC803F541C3A015A0046458A /* OAuthModel.h */,
+				BC803F551C3A015A0046458A /* OAuthModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -498,6 +511,24 @@
 				B63502B47308AAA45A91F296 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC803F571C3A03CC0046458A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BC803F581C3A03E30046458A /* OAuthTool.h */,
+				BC803F591C3A03E30046458A /* OAuthTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BC803F5B1C3A1BE20046458A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BC803F5C1C3A1C030046458A /* NewfeatureTool.h */,
+				BC803F5D1C3A1C030046458A /* NewfeatureTool.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -647,11 +678,14 @@
 				11CDB4EA1C321EEB00E07899 /* RootTabBarController.m in Sources */,
 				11D2EED11C33BEC500E0AFF2 /* DropControl.m in Sources */,
 				11CDB4AE1C321B3400E07899 /* AppDelegate.m in Sources */,
+				BC803F561C3A015A0046458A /* OAuthModel.m in Sources */,
 				11CDB4F31C32208A00E07899 /* DiscoveryTableViewController.m in Sources */,
 				11CDB4AB1C321B3400E07899 /* main.m in Sources */,
 				115C39021C33820000581C98 /* UIBarButtonItem+Util.m in Sources */,
+				BC803F5E1C3A1C030046458A /* NewfeatureTool.m in Sources */,
 				11ED9B481C352572000F18DF /* AFHTTPSessionManager+Util.m in Sources */,
 				1118C69D1C34BE6A00539D37 /* WBBadgeButton.m in Sources */,
+				BC803F5A1C3A03E30046458A /* OAuthTool.m in Sources */,
 				11CDB4FC1C322F8C00E07899 /* WBTabBarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

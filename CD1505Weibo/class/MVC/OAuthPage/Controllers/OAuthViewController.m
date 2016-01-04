@@ -9,6 +9,9 @@
 #import "OAuthViewController.h"
 #import "WB-OAuthInfo.h"
 #import "AFHTTPSessionManager+Util.h"
+#import "OAuthModel.h"
+#import "OAuthTool.h"
+#import "NewfeatureTool.h"
 
 
 @interface OAuthViewController () <UIWebViewDelegate>
@@ -45,7 +48,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"url = %@",request.URL.absoluteString);
+   
     
     NSString *urlStr = request.URL.absoluteString;
     
@@ -77,7 +80,18 @@
     
     [AFHTTPSessionManager requestWithType:AFHTTPSessionManagerRequestTypePOST URLString:WB_API_GETACCESSTOKEN parmaeters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSLog(@"respoobj = %@",responseObject);
+//        NSLog(@"respoobj = %@",responseObject);
+         //用归档存储信息
+        OAuthModel *model = [[OAuthModel alloc] init];
+        model.access_token = responseObject[@"access_token"];
+        model.expires_in = responseObject[@"expires_in"];
+        model.remind_in = responseObject[@"remind_in"];
+        model.uid = responseObject[@"uid"];
+        
+        NSLog(@"%@", NSHomeDirectory());
+        [OAuthTool saveOAuthInfoWithModel:model];
+        [NewfeatureTool choseRootViewController];
+        
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"erro  =%@",[error localizedDescription]);
