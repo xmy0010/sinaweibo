@@ -12,7 +12,9 @@
 
 //在存储过期时间差值的时候 存储下过期时间点
 - (void)setExpires_in:(NSString *)expires_in {
-
+    
+   _expires_in = expires_in;
+    
     //1.获取当前时间
     NSDate *nowDate = [NSDate date];
     
@@ -31,7 +33,7 @@
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.remind_in forKey:@"remind_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
-    [aCoder encodeObject:self forKey:@"expiresDate"];
+    [aCoder encodeObject:self.expiresDate forKey:@"expiresDate"];
 }
 
 //解档 将获取到的归档信息通过某种编码方式解析出来

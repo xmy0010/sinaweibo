@@ -23,6 +23,7 @@ PODS:
   - IQKeyboardManager (3.3.4)
   - KVNProgress (2.2.2)
   - MBProgressHUD (0.9.1)
+  - MJExtension (3.0.8)
   - pop (1.0.8)
   - PopMenu (2.4):
     - pop
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - KVNProgress
   - MBProgressHUD
+  - MJExtension
   - PopMenu
   - SDWebImage
   - SVProgressHUD
@@ -47,10 +49,11 @@ SPEC CHECKSUMS:
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
   KVNProgress: 4697347e21e37fdaa5264ebc24e377c205a50328
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJExtension: 12d2875959b4a0f936ae86b22a1eb6b0251c50ba
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   XHRealTimeBlur: 661fadd5691ba2d349758e8fd5fbdb499ac55f8c
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

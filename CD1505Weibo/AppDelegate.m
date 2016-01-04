@@ -25,12 +25,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-        
-    
     OAuthModel *model = [OAuthTool fetchOAuthModel];
     //NSOrderedDescending降序    NSOrderedAscending升序
-    
-    if (model  && [model.expiresDate compare:[NSDate date]] == NSOrderedDescending) {
+    if (model) {
         [NewfeatureTool choseRootViewController];
     } else {
         

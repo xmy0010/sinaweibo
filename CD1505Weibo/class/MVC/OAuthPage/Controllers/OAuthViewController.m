@@ -80,7 +80,7 @@
     
     [AFHTTPSessionManager requestWithType:AFHTTPSessionManagerRequestTypePOST URLString:WB_API_GETACCESSTOKEN parmaeters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-//        NSLog(@"respoobj = %@",responseObject);
+        NSLog(@"respoobj = %@",responseObject);
          //用归档存储信息
         OAuthModel *model = [[OAuthModel alloc] init];
         model.access_token = responseObject[@"access_token"];

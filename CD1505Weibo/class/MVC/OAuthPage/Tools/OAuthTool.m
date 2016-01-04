@@ -28,7 +28,16 @@
 
 + (OAuthModel *)fetchOAuthModel {
 
-    return [NSKeyedUnarchiver unarchiveObjectWithFile: ArchivePath];
+    //如果已经过期 返回空或抛出异常
+    NSDate *now = [NSDate date];
+    OAuthModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:ArchivePath];
+    
+    if ([now compare:model.expiresDate] == NSOrderedAscending) {
+        //没过期才return
+        return model;
+    } else {
+        return nil;
+    }
 }
 
 @end

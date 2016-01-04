@@ -10,13 +10,13 @@
 #define CD1505Weibo_WB_OAuthInfo_h
 
 /** 微博APPKEY*/
-#define WB_APPKEY @"3311846147"
+#define WB_APPKEY @"2738869356"
 
 /** 微博秘钥*/
-#define WB_SECRET @"8c10c7ef47cdc99900fc620e4dffc69e"
+#define WB_SECRET @"2fb973a8a45ff7d0d58707cdd67a23f7"
 
 /** 微博回调地址*/
-#define WB_REDIRECTURI @"http://www.1000phone.com"
+#define WB_REDIRECTURI @"http://www.baidu.com"
 
 
 /** 请求授权的url*/
