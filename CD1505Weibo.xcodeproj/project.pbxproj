@@ -36,6 +36,9 @@
 		BC803F651C3A52820046458A /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F641C3A52820046458A /* StatusModel.m */; };
 		BC803F681C3A59170046458A /* Pic_urlsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F671C3A59170046458A /* Pic_urlsModel.m */; };
 		BC803F6B1C3A5AB10046458A /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC803F6A1C3A5AB10046458A /* UserModel.m */; };
+		BC8243E11C3B646E006820AE /* WBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8243E01C3B646E006820AE /* WBCell.m */; };
+		BC8243E41C3B75BC006820AE /* WBFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8243E31C3B75BC006820AE /* WBFrameModel.m */; };
+		BC8243E71C3BB9E4006820AE /* PicBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8243E61C3BB9E4006820AE /* PicBackgroundView.m */; };
 		FEFE96F48A3B2E2EC6C6C457 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EBD5EBAAF6FCF88E7CFF8A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +115,12 @@
 		BC803F671C3A59170046458A /* Pic_urlsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pic_urlsModel.m; sourceTree = "<group>"; };
 		BC803F691C3A5AB10046458A /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		BC803F6A1C3A5AB10046458A /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		BC8243DF1C3B646E006820AE /* WBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCell.h; sourceTree = "<group>"; };
+		BC8243E01C3B646E006820AE /* WBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCell.m; sourceTree = "<group>"; };
+		BC8243E21C3B75BC006820AE /* WBFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBFrameModel.h; sourceTree = "<group>"; };
+		BC8243E31C3B75BC006820AE /* WBFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBFrameModel.m; sourceTree = "<group>"; };
+		BC8243E51C3BB9E4006820AE /* PicBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicBackgroundView.h; sourceTree = "<group>"; };
+		BC8243E61C3BB9E4006820AE /* PicBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicBackgroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +309,8 @@
 				BC803F671C3A59170046458A /* Pic_urlsModel.m */,
 				BC803F691C3A5AB10046458A /* UserModel.h */,
 				BC803F6A1C3A5AB10046458A /* UserModel.m */,
+				BC8243E21C3B75BC006820AE /* WBFrameModel.h */,
+				BC8243E31C3B75BC006820AE /* WBFrameModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +322,10 @@
 				115C39041C33867A00581C98 /* TitleButton.m */,
 				11D2EECF1C33BEC500E0AFF2 /* DropControl.h */,
 				11D2EED01C33BEC500E0AFF2 /* DropControl.m */,
+				BC8243DF1C3B646E006820AE /* WBCell.h */,
+				BC8243E01C3B646E006820AE /* WBCell.m */,
+				BC8243E51C3BB9E4006820AE /* PicBackgroundView.h */,
+				BC8243E61C3BB9E4006820AE /* PicBackgroundView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -708,14 +723,17 @@
 				11ED9B421C3512F1000F18DF /* OAuthViewController.m in Sources */,
 				11CDB4ED1C32205600E07899 /* HomeTableViewController.m in Sources */,
 				115C39051C33867A00581C98 /* TitleButton.m in Sources */,
+				BC8243E11C3B646E006820AE /* WBCell.m in Sources */,
 				BC803F621C3A525B0046458A /* BaseModel.m in Sources */,
 				11CDB4F01C32206E00E07899 /* MessageTableViewController.m in Sources */,
+				BC8243E71C3BB9E4006820AE /* PicBackgroundView.m in Sources */,
 				BC803F651C3A52820046458A /* StatusModel.m in Sources */,
 				11CDB4F91C322F0100E07899 /* WBTabBar.m in Sources */,
 				11CDB4F61C3220A000E07899 /* PersonalTableViewController.m in Sources */,
 				11ED9B3B1C34DB37000F18DF /* NewfeatureViewController.m in Sources */,
 				11ED9B341C34D3A7000F18DF /* UIImage+Util.m in Sources */,
 				11CDB4EA1C321EEB00E07899 /* RootTabBarController.m in Sources */,
+				BC8243E41C3B75BC006820AE /* WBFrameModel.m in Sources */,
 				11D2EED11C33BEC500E0AFF2 /* DropControl.m in Sources */,
 				11CDB4AE1C321B3400E07899 /* AppDelegate.m in Sources */,
 				BC803F561C3A015A0046458A /* OAuthModel.m in Sources */,

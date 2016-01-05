@@ -22,6 +22,20 @@
 #import <AFNetworking.h>
 
 
+//字体相关
+//用户名字体大小（微博正文）
+#define WB_Font_Username [UIFont systemFontOfSize:16]
+
+//微博发布时间 / 来源 字体大小
+#define WB_Font_Time [UIFont systemFontOfSize:13]
+
+//间距
+//普通间距
+#define WB_Spacing_Normal 8
+
+//较小的间距
+#define WB_Spacing_Small 5
+
 
 
 #endif

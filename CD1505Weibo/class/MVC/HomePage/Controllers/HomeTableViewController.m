@@ -16,15 +16,27 @@
 #import "OAuthModel.h"
 #import "OAuthViewController.h"
 #import "StatusModel.h"
+#import "WBFrameModel.h"
 
 @interface HomeTableViewController ()
 
 /** 下拉框*/
 @property (nonatomic,strong) DropControl *dropControl;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation HomeTableViewController
+
+- (NSMutableArray *)dataArray {
+ 
+    if (_dataArray == nil) {
+        _dataArray = @[].mutableCopy;
+    }
+    
+    return _dataArray;
+}
 
 - (DropControl *)dropControl
 {
@@ -154,15 +166,55 @@
     [AFHTTPSessionManager requestWithType: AFHTTPSessionManagerRequestTypeGET URLString:WB_API_HOME_TIMELINE  parmaeters:paramas success:^(NSURLSessionDataTask *task, id responseObject) {
 
         NSArray *statusArr = responseObject[@"statuses"];
-        NSArray *arr = [StatusModel mj_objectArrayWithKeyValuesArray:statusArr];
+        NSArray *sModelArr = [StatusModel mj_objectArrayWithKeyValuesArray:statusArr];
         
-        StatusModel *model = arr[0];
-        NSLog(@"text=%@, user.name=%@", model.text, model.user.name);
+        //循环数据model 创建FrameModel
+        for (StatusModel *sModel in sModelArr) {
+            WBFrameModel *fModel = [[WBFrameModel alloc] init];
+            fModel.statusModel = sModel;
+            
+            //
+            [self.dataArray addObject:fModel];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+     
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
        
         NSLog(@"%@", error.localizedDescription);
     }];
+}
+
+#pragma mark - <UITableViewDelegate & UITableViewDataSource>
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return self.dataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    //
+    
+    return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+    static NSString *cellID = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+    }
+    StatusModel *model = self.dataArray[indexPath.row];
+    cell.textLabel.text = model.text;
+    
+    return cell;
 }
 
 @end

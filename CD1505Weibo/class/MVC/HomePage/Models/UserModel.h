@@ -25,7 +25,7 @@
 //认证类型
 @property (nonatomic, assign) NSInteger verified_type;
 
-//vip等级
+/**vip等级*/
 @property (nonatomic, assign) NSInteger mbrank;
 
 //vip类型
