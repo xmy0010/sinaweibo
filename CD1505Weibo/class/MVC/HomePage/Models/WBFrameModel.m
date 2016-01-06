@@ -9,12 +9,13 @@
 #import "WBFrameModel.h"
 #import "PicBackgroundView.h"
 
-CGFloat const vWidth_Height = 15;
+CGFloat const vWidth_Height = 15.;
 
 @implementation WBFrameModel
 
 - (void)setStatusModel:(StatusModel *)statusModel {
- 
+    
+    _statusModel = statusModel;
     UserModel *userModel = statusModel.user;
     
     
@@ -33,14 +34,16 @@ CGFloat const vWidth_Height = 15;
     
     //2.是否是验证用户的图标
     CGFloat userVerifyWidth_Height = vWidth_Height;
+ 
     CGFloat userVerifyX_Y = userIconWidth_Height - userVerifyWidth_Height;
-    
-    if (userModel.verified) {
+    CGFloat userVerifyX = userVerifyX_Y + userIconX;
+    CGFloat userVerifyY = userVerifyX_Y + userIconY;
+    if (userModel.verified == YES) {
         
     } else {
         userVerifyWidth_Height = 0;
     }
-    self.userVerifyImageViewFrame = CGRectMake(userVerifyX_Y, userVerifyX_Y, userVerifyWidth_Height, userVerifyWidth_Height);
+    self.userVerifyImageViewFrame = CGRectMake(userVerifyX, userVerifyY, userVerifyWidth_Height, userVerifyWidth_Height);
     
    
     //3.用户名
@@ -70,8 +73,8 @@ CGFloat const vWidth_Height = 15;
     //来源
     CGFloat wbSourceX = CGRectGetMaxX(_wbCreateTimeLableFrame) + WB_Spacing_Small;
     CGFloat wbSourceY = wbCTimeY;
-    CGSize wbSourceSize = [statusModel.source sizeWithAttributes:@{NSFontAttributeName : WB_Font_Time}];
-    self.wbSourceLableFrame = (CGRect) {{wbSourceX, wbCTimeY}, wbSourceSize};
+    CGSize wbSourceSize = [statusModel.source sizeWithAttributes:@{NSFontAttributeName : WB_Font_Username}];
+    self.wbSourceLableFrame = (CGRect) {{wbSourceX, wbSourceY}, wbSourceSize};
     
     topHeight =  MAX(CGRectGetMaxY(_userIconImageViewFrame), CGRectGetMaxY(_wbCreateTimeLableFrame)) + WB_Spacing_Normal;
     self.topBackgroundViewFrame = CGRectMake(topOriginX, topOriginY, topWidth, topHeight);
@@ -99,22 +102,46 @@ CGFloat const vWidth_Height = 15;
     self.secondBackgroundViewFrame = CGRectMake(secondOriginX, secondOriginY, secondWidth, secondHeight);
     
     //第三块
-//    //用户转发微博内容的背景图层
-//    @property (nonatomic, assign) CGRect rwBackgroundViewFrame;
-//    //转发微博的文字内容
-//    @property (nonatomic, assign) CGRect rwWBContentLableFrame;
-//    @property (nonatomic, assign) CGRect rwWBPicsBackgroundViewFrame;
-//    
-//    //第四块
-//    //底部操作栏图层
-//    @property (nonatomic, assign) CGRect bottomBackgroundFrame;
-//    //1.转发按钮
-//    @property (nonatomic, assign) CGRect repostButtonFrame;
-//    //2.评论
-//    @property (nonatomic, assign) CGRect commentButtonFrame;
-//    //3.点赞
-//    @property (nonatomic, assign) CGRect attitudeButtonFrame;
+    //用户转发微博内容的背景图层
+    CGFloat rwBackgroundX = secondOriginX;
+    CGFloat rwBackgroundY = CGRectGetMaxY(_secondBackgroundViewFrame) + WB_Spacing_Small;
+    CGFloat rwBackgroundWidth = secondWidth;
+    CGFloat rwBackgroundHeight = 0;
     
+    //转发微博的文字内容
+    CGFloat rwContentX = wbContentX;
+    CGFloat rwContentY = WB_Spacing_Small;
+    CGSize rwContentSize = [statusModel.retweeted_status.text boundingRectWithSize:CGSizeMake(rwBackgroundWidth - 2 * rwBackgroundX, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : WB_Font_Username} context:nil].size;
+    self.rwWBContentLableFrame = (CGRect){{rwContentX, rwContentY}, rwContentSize};
+    
+    //图片图层
+    CGFloat rwPicX = wbPicX;
+    CGFloat rwPicY = CGRectGetMaxY(_rwWBContentLableFrame)+ WB_Spacing_Small;
+    CGFloat rwPicWidth = rwBackgroundWidth;
+    CGFloat rwPicHeight = [PicBackgroundView heightWithNumber:statusModel.retweeted_status.pic_urls.count];
+    self.rwWBPicsBackgroundViewFrame = CGRectMake(rwPicX, rwPicY, rwPicWidth, rwPicHeight);
+    
+    rwBackgroundHeight = CGRectGetMaxY(_rwWBPicsBackgroundViewFrame);
+    self.rwBackgroundViewFrame = CGRectMake(rwBackgroundX, rwBackgroundY, rwBackgroundWidth, rwBackgroundHeight);
+    
+    //第四块
+    //底部操作栏图层
+    CGFloat bottomX = 0;
+    CGFloat bottomY = CGRectGetMaxY(_rwBackgroundViewFrame)  + WB_Spacing_Small;
+    CGFloat bottomWidth = topWidth;
+    CGFloat bottomHeight = 40;
+    self.bottomBackgroundFrame = CGRectMake(bottomX, bottomY, bottomWidth, bottomHeight);
+    
+    CGFloat buttonWidth = CGRectGetWidth(_bottomBackgroundFrame) / 3.;
+    //1.转发按钮
+    self.repostButtonFrame = CGRectMake(0, 0, buttonWidth, bottomHeight);
+    //2.评论
+    self.commentButtonFrame = CGRectMake(buttonWidth, 0, buttonWidth, bottomHeight);
+    //3.点赞
+    self.attitudeButtonFrame = CGRectMake(buttonWidth * 2, 0, buttonWidth, bottomHeight);
+    
+    //计算cell的高度
+    self.cellHeight = CGRectGetMaxY(_bottomBackgroundFrame);
 
     
 }

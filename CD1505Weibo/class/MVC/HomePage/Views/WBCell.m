@@ -8,6 +8,8 @@
 
 #import "WBCell.h"
 #import "PicBackgroundView.h"
+#import "WBFrameModel.h"
+#import <UIImageView+WebCache.h>
 
 @interface WBCell ()
 
@@ -33,7 +35,7 @@
 //微博文字内容
 @property (nonatomic, strong) UILabel *wbContentLable;
 //微博图片内容的背景图层
-@property (nonatomic, strong) UIView *wbPicsBackgroundView;
+@property (nonatomic, strong) PicBackgroundView *wbPicsBackgroundView;
 
 //第三块
 //用户转发微博内容的背景图层
@@ -81,7 +83,7 @@
     
     //2.是否是验证用户
     self.userVerifyImageView = [[UIImageView alloc] init];
-    [self.userIconImageView addSubview:_userVerifyImageView];
+    [self.topBackgroundView addSubview:_userVerifyImageView];
     
     //3.用户名
     self.usernameLable = [[UILabel alloc] init];
@@ -115,7 +117,7 @@
     [self.secondBackgroundView addSubview:_wbContentLable];
     
     //2。微博图片内容
-    self.wbPicsBackgroundView = [[UIView alloc] init];
+    self.wbPicsBackgroundView = [[PicBackgroundView alloc] init];
     [self.secondBackgroundView addSubview:_wbPicsBackgroundView];
     
     /*********************Time Mechine******************************/
@@ -133,7 +135,7 @@
     [self.rwBackgroundView addSubview:_rwWBContentLable];
     
     //图片
-    self.rwWBPicsBackgroundView = [[UIView alloc] init];
+    self.rwWBPicsBackgroundView = [[PicBackgroundView alloc] init];
     [self.rwBackgroundView addSubview:_rwWBPicsBackgroundView];
     
     //第四块
@@ -162,6 +164,92 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setFramModel:(WBFrameModel *)framModel {
+        _framModel = framModel;
+    StatusModel *statusModel = _framModel.statusModel;
+    //第一块
+    self.topBackgroundView.frame = framModel.topBackgroundViewFrame;
+//    self.topBackgroundView.backgroundColor = [UIColor redColor];
+    //用户图像
+    NSURL *userIconUrl = [NSURL URLWithString:statusModel.user.profile_image_url];
+    [self.userIconImageView sd_setImageWithURL:userIconUrl placeholderImage:[UIImage imageNamed: @"avatar_default_big"]];
+    self.userIconImageView.frame = framModel.userIconImageViewFrame;
+    self.userIconImageView.layer.masksToBounds = YES;
+    
+    //验证用户图标
+    BOOL isVerified = statusModel.user.verified;
+    NSString *userVerifiedImageName = nil;
+    if (isVerified == YES) {
+        if (statusModel.user.verified_type > 1) {
+            userVerifiedImageName = @"avatar_enterprise_vip";
+        } else {
+            userVerifiedImageName = @"avatar_vip";
+        }
+    }
+    self.userVerifyImageView.image = [UIImage imageNamed: userVerifiedImageName];//企业
+    self.userVerifyImageView.frame = framModel.userVerifyImageViewFrame;
+    
+    //用户名
+    self.usernameLable.text = statusModel.user.name;
+    self.usernameLable.frame = framModel.usernameLableFrame;
+    
+    //用户vip等级
+    NSInteger vipLevel = statusModel.user.mbrank;
+    NSString *vipImageName = [NSString stringWithFormat:@"common_icon_membership_level%ld", vipLevel];
+    self.userVipLevelImageView.image = [UIImage imageNamed: vipImageName];
+    self.userVipLevelImageView.frame = framModel.userVipLevelImageViewFrame;
+    
+    //发布时间
+    self.wbCreateTimeLable.text = statusModel.created_at;
+    self.wbCreateTimeLable.frame = framModel.wbCreateTimeLableFrame;
+    
+    //来源
+    self.wbSourceLable.text = statusModel.source;
+    self.wbSourceLable.frame = framModel.wbSourceLableFrame;
+    
+    
+    //第二块
+    self.secondBackgroundView.frame = framModel.secondBackgroundViewFrame;
+//    self.secondBackgroundView.backgroundColor = [UIColor yellowColor];
+    
+    //文字内容
+    self.wbContentLable.text = statusModel.text;
+    self.wbContentLable.frame = framModel.wbContentLableFrame;
+    
+    //图片内容
+    [self.wbPicsBackgroundView showPicsWithArray:statusModel.pic_urls];
+    self.wbPicsBackgroundView.frame = framModel.wbPicsBackgroundViewFrame;
+    
+    //第三块
+    
+    //背景
+    self.rwBackgroundView.frame = framModel.rwBackgroundViewFrame;
+//    self.rwBackgroundView.backgroundColor = [UIColor blueColor];
+    
+    //文字
+    self.rwWBContentLable.text = statusModel.retweeted_status.text;
+    self.rwWBContentLable.frame = framModel.rwWBContentLableFrame;
+    
+    //图片
+    [self.rwWBPicsBackgroundView showPicsWithArray:statusModel.retweeted_status.pic_urls];
+    self.rwWBPicsBackgroundView.frame = framModel.rwWBPicsBackgroundViewFrame;
+    
+    //第四块
+    self.bottomBackground.frame = framModel.bottomBackgroundFrame;
+    self.bottomBackground.backgroundColor = [UIColor greenColor];
+    //三个按钮
+    self.repostButton.frame = framModel.repostButtonFrame;
+    self.commentButton.frame = framModel.commentButtonFrame;
+    self.attitudeButton.frame = framModel.attitudeButtonFrame;
+}
+
+- (void)layoutSubviews {
+
+    [super layoutSubviews];
+    
+    self.userIconImageView.layer.cornerRadius = CGRectGetWidth(_userIconImageView.frame) * 0.5;
 }
 
 @end

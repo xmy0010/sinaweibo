@@ -10,4 +10,13 @@
 
 @implementation Pic_urlsModel
 
+- (void)setThumbnail_pic:(NSString *)thumbnail_pic {
+
+    _thumbnail_pic = thumbnail_pic;
+    
+    //将大图片的地址存下来
+    NSString *largePic = [thumbnail_pic stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"large"];
+    self.large_pic = largePic;
+}
+
 @end

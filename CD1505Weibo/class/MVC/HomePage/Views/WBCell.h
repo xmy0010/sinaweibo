@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WBFrameModel;
 
 @interface WBCell : UITableViewCell
 
 
-
+@property (nonatomic, strong) WBFrameModel *framModel;
 
 
 @end

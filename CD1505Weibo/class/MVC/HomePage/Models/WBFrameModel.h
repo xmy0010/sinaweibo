@@ -13,7 +13,7 @@
 @interface WBFrameModel : NSObject
 
 //通过StatusModel提前计算出每个控件的frame
-@property (nonatomic, assign) StatusModel *statusModel;
+@property (nonatomic, strong) StatusModel *statusModel;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 

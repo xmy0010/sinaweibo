@@ -17,6 +17,7 @@
 #import "OAuthViewController.h"
 #import "StatusModel.h"
 #import "WBFrameModel.h"
+#import "WBCell.h"
 
 @interface HomeTableViewController ()
 
@@ -78,7 +79,8 @@
     [super viewDidLoad];
     
     [self createNaviBarItem];
-    
+/**/
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self requestData];
     // Uncomment the following line to preserve selection between presentations.
@@ -160,7 +162,7 @@
         self.view.window.rootViewController = [[OAuthViewController alloc] init];
     } else {
         paramas[@"access_token"] = model.access_token;
-        paramas[@"count"] = @5;
+        paramas[@"count"] = @200;
     }
     
     [AFHTTPSessionManager requestWithType: AFHTTPSessionManagerRequestTypeGET URLString:WB_API_HOME_TIMELINE  parmaeters:paramas success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -198,21 +200,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    //
+    //取出frameModel
+    WBFrameModel *frameModel = self.dataArray[indexPath.row];
     
-    return 100;
+    return frameModel.cellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  
     static NSString *cellID = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    WBCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+        cell = [[WBCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
-    StatusModel *model = self.dataArray[indexPath.row];
-    cell.textLabel.text = model.text;
+    WBFrameModel *model = self.dataArray[indexPath.row];
+    cell.framModel = model;
     
     return cell;
 }
