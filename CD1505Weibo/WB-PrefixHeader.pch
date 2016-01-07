@@ -1,0 +1,48 @@
+//
+//  WB-PrefixHeader.pch
+//  CD1505Weibo
+//
+//  Created by HeHui on 15/12/29.
+//  Copyright (c) 2015年 Hawie. All rights reserved.
+//
+
+#ifndef CD1505Weibo_WB_PrefixHeader_pch
+#define CD1505Weibo_WB_PrefixHeader_pch
+
+
+/** 尺寸相关*/
+// 屏幕宽度
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+// 屏幕高度
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+/** 三方库*/
+#import <AFNetworking.h>
+#import <KVNProgress.h>
+#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
+
+#import "MBProgressHUDManager.h"
+
+
+/** 字体相关*/
+
+// 用户名字体大小（微博正文也是这个）
+#define WB_FONT_USERNAME [UIFont systemFontOfSize:16]
+
+// 微博发布时间字体大小(来源也是用这个)
+#define WB_FONT_TIME [UIFont systemFontOfSize:13]
+
+
+/** 间距*/
+
+// 普通间距
+#define WB_SPACING_NORMAL 8
+
+// 较小的间距
+#define WB_SPACING_SMALL 5
+
+
+#endif
